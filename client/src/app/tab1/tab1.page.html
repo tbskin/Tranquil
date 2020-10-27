@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Your QR Code
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{showGenerateQRInstructions()}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="qrGenerated">
+      <ngx-qrcode [elementType]="url" [value]="qrCodeValue"></ngx-qrcode>
+      <p>Value: {{qrCodeValue}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" (click)="generateQRCode()"
+    >{{generateQRCodeButtonText}}</ion-button
+  >
+</ion-content>
